@@ -7,6 +7,7 @@
    把文件由未被跟踪-->被跟踪，方式：git add .把所有文件都设为被跟踪      ，git add *.txt把所有txt文件设为被跟踪
 4、git reset HEAD 文件名         //将文件从被跟踪状态变回未被跟踪状态
 5、git commit -m "first commit"  //提交到仓库
+   git push  //将文件同步到仓库显示
 6、git config user.name   //查看用户名
    git config user.email  //查看邮箱
 7、第二种创建仓库的方式
