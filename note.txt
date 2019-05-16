@@ -1,0 +1,57 @@
+一、
+1、git init GitTest  //创建一个空仓库GitTest
+2、手动添加文件Test.txt
+3、git add 文件名    //将文件添加到暂存区
+   >> 添加到暂存区后，就是被跟踪的状态。
+   >> Untracked files，是未被跟踪（未被监视）的状态
+   把文件由未被跟踪-->被跟踪，方式：git add .把所有文件都设为被跟踪      ，git add *.txt把所有txt文件设为被跟踪
+4、git reset HEAD 文件名         //将文件从被跟踪状态变回未被跟踪状态
+5、git commit -m "first commit"  //提交到仓库
+6、git config user.name   //查看用户名
+   git config user.email  //查看邮箱
+7、第二种创建仓库的方式
+   >> 在github上创建仓库GitDemo
+   >> git clone https://github.com/Liyue1998/GitDome.git
+8、git log  //查看以往每次的提交的记录
+9、git branch   //查看分支
+10、git status  //查看状态
+11、工作区修改-->暂存区-->仓库
+12、修改文档内容，没有其他操作，状态：没有被暂存，只是工作区修改了。
+
+二、
+1、git checkout 文件名  //恢复版本
+   >> 注意：恢复到最近一次提交到仓库的版本
+2、git reset HEAD 文件名  //恢复状态
+   >> 
+
+三、
+在工作区把333改成444，没有到暂存区，也没有提交到仓库。想恢复成333：git checkout Test.txt  //从仓库的333恢复过来的
+四、
+在工作区把333改成444 --> git add Test.txt到了暂存区 --> 再次修改工作区555 --> git status查看状态 --> 既在暂存，又在非暂存，这是怎么回事？
+（1）如果commit，之后仓库里提交的是444，而不是555。
+（2）没有commit，想把工作区恢复到444，用什么命令？
+     >> git reset HEAD Test.txt
+//git checkout会恢复到333，因为之前仓库里是333
+
+五、
+1、
+git clone https://github.com/Liyue1998/GitDome.git
+本地有一个master分支，和远端仓库的master分支是关联的
+远端仓库在本地有一个别名origin
+2、???
+git remote 结果origin  远程git仓库上的仓库的别名
+git remote show origin  //?
+3、git branch  //查看分支
+4、HEAD相当于是一个指针
+5、git reset  //恢复状态
+
+六、不要在克隆的仓库里再克隆其他的仓库，会造成混乱
+
+七、配置忽略文件？
+有一些文件，不需要对它进行版本控制。添加git.ignore文件
+怎样去忽略对某些文件的控制？
+
+
+
+
+
