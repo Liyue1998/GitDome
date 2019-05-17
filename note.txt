@@ -1,5 +1,6 @@
 一、
 1、git init GitTest  //创建一个空仓库GitTest
+   >> ???或者在普通文件夹GitTest中，git init
 2、手动添加文件Test.txt
 3、git add 文件名    //将文件添加到暂存区
    >> 添加到暂存区后，就是被跟踪的状态。
@@ -13,11 +14,11 @@
 7、第二种创建仓库的方式
    >> 在github上创建仓库GitDemo
    >> git clone https://github.com/Liyue1998/GitDome.git
-8、git log  //查看以往每次的提交的记录
+8、git log  //查看以往每次的提交的记录（log，日志）
 9、git branch   //查看分支
 10、git status  //查看状态
 11、工作区修改-->暂存区-->仓库
-12、修改文档内容，没有其他操作，状态：没有被暂存，只是工作区修改了。
+12、修改文档内容，没有其他操作，状态：已修改，没有被暂存。（只是工作区修改了。）
 
 二、
 1、git checkout 文件名  //恢复版本
@@ -51,6 +52,84 @@ git remote show origin  //?
 七、配置忽略文件？
 有一些文件，不需要对它进行版本控制。添加git.ignore文件
 怎样去忽略对某些文件的控制？
+
+
+
+
+5/17
+【回顾】
+add不是添加文件，而是添加到暂存区。
+git reset HEAD <file>..." to unstage  //恢复到未被跟踪状态
+如果已经对文件进行过几次版本控制，想要回复版本有两种方式：
+git reset HEAD 文件名 
+或git checkout 文件名
+
+一、
+1、git commit -a -m "commit"  //快速提交。之前是提交到暂存区后，再commit提交到仓库。这样就将两步合并成一步。
+   >> 前提是，之前已经提交过一次，第二次才能快速。第一次会出现父节点
+
+
+二、怎样删除文件
+git rm 文件名  //移除文件
+git commit -m "delete文件"
+
+这样彻底删除了，后悔了怎么办？
+git log
+记录对应版本的哈希码（前5位就可以）
+git reset 哈希码（前7位）  //仓库就恢复到之前的某一个版本
+git checkout 文件名  //本地恢复成现在仓库的版本
+
+3、强制删除，加-f
+
+三、移动文件
+?? git mv 文件名
+
+
+四、文件重命名
+之前是干净的工作区，手动改名，git status查看状态-->实质是删除了之前的文件，新建了一个文件，这个新建的文件是未被跟踪的。如果想恢复到原来的名字怎么办？ //建议不要这样手动操作，容易出错,要弥补很麻烦
+>> 需要把两个文件都提交到暂存区，再commit提交
+
+建议操作：
+git mv GitTest.txt TestGit.txt  //已在暂存区，git status 
+git commit -m 'renamed'
+
+
+5、打标签tag
+git tag  //初始时没有标签
+git tag v1.0  //在git tag就有v1.0
+
+  
+五、
+git clone https://github.com/Liyue1998/BranchTeat.git
+ls
+cd BranchTest
+git remote
+git remote show origin
+
+//git remote add pb https://github.com/Liyue1998/BranchTeat.git
+pb是仓库在本地的别名。如果不手动设置，默认是origin
+
+git fetch pb
+从远端拿到所有的数据。
+
+pb/master
+远端仓库的master分支
+
+origin是https://github.com/Liyue1998/BranchTeat.git的别名
+git push origin master
+>> 推送到origin的master分支
+
+
+六、分支
+本地新建仓库BranchTest
+1、创建分支develop（两种方式）
+第一种：git branch 分支名  //创建新分支，但没有切换到该分支
+第二种：git checkout -b 分支名  //创建新分支，并切换到该分支
+2、切换分支
+git checkout 分支名  （实质是指针移动）
+3、删除分支
+git branch -d 分支名
+4、主分支比较稳定，开发者分支在不断地更新提交。最终开发者分支比较稳定时，就整合到主分支master上。
 
 
 
