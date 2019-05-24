@@ -166,7 +166,9 @@ git commit -am 'hotfix develop'
 
 3、
 修改好master分支后，hotfix的使命就完成了。
-就可以删除hotfix分支了git branch -d hotfix。
+就可以删除hotfix分支了git branch -d hotfix
+
+
 
 
 
