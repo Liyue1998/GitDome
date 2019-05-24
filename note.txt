@@ -132,6 +132,59 @@ git branch -d 分支名
 4、主分支比较稳定，开发者分支在不断地更新提交。最终开发者分支比较稳定时，就整合到主分支master上。
 
 
+5/24
+一、test.txt文件
+//master分支下
+以下是git介绍
+git是以个好东西！
+
+//develop分支下
+以下是git介绍
+git是以个好东西！
+一些是github的介绍
+...
+
+//hotfix分支下
+以下是git介绍
+git是以个好东西！
+//改成：
+以下是git介绍
+git是一个好东西！
+
+接下来进行分支的合并。
+
+
+二、
+1、
+在master分支下，执行git merge hotfix，就把hotfix分支合并到了master分支上。
+用来达到修改master分支的效果。
+
+2、
+在develop分支下，执行git merge hotfix，这时产生了冲突（黄色三角叹号）。这时再打开文件，就会出现冲突信息，要手动修改。手动改完后，就跟踪、提交：
+git add .
+git commit -am 'hotfix develop'
+
+3、
+修改好master分支后，hotfix的使命就完成了。
+就可以删除hotfix分支了git branch -d hotfix。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
